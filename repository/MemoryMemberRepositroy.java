@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.Array;
 import java.util.*;
 @Repository
+// 향후에 jdbc를 변환하면
 public class MemoryMemberRepositroy implements MemberRepository {
 
     private  static Map<Long,Member> store = new HashMap<>();   //동시성 문제 concent
