@@ -18,21 +18,29 @@ public class SpringConfig {
     */
     // 여기서 주입하는 거구나.
 
-    private EntityManager em;
+/*    private EntityManager em;
     @Autowired
     public SpringConfig(EntityManager em){
         this.em = em;
 
+    }*/
+
+
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
-    @Bean
+/*    @Bean
     public MemberRepository memberRepository() {
         //return new MemoryMemberRepositroy();
         //return new JdbcMemberRepository(dataSource);
         //
         return new JpaMemberRepository(em);
-    }
+    }*/
 }
